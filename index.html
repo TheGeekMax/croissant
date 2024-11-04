@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROISSANT</title>
+
+    <style>
+        #croissant {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        body {
+            background-image: url('bg.webp');
+            background-repeat: repeat;
+            background-size: 300px 300px;
+        }
+
+        #click {
+            width: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(0%, -100%);
+        }
+
+        /* animation, that move the click from left to right (from -10% to 10%) every 1.5s*/
+        @keyframes move {
+            0% {
+                transform: translate(-10%, -100%);
+            }
+            50% {
+                transform: translate(10%, -100%);
+            }
+            100% {
+                transform: translate(-10%, -100%);
+            }
+        }
+
+        #click {
+            animation: move 1.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <img src="nggyu.jpg" alt="ceci est un croissant" id="croissant">
+    <img src="click.png" alt="ceci est un croissant" id="click">
+
+    <script>
+        let croissant = document.getElementById('croissant');
+        let angle = 0;
+        let velocity = 1;
+
+        let already = true;
+
+        setInterval(() => {
+            angle += velocity;
+            croissant.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+        }, 10);
+        
+        //on button click
+        function changeSpeed() {
+            if (already){
+                already = false;
+                velocity += 4;
+                //hide click
+                document.getElementById('click').style.display = 'none';
+            }
+            velocity *= 1.1;
+        }
+    
+        croissant.addEventListener('click', changeSpeed);
+    </script>
+</body>
+</html>
