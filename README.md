@@ -5,3 +5,4 @@ Bonjour, je me suis fait croissanter. Cordialement
 C'est sympa d'offrir des croissants à tous l'ENSISA
 
 # Ajout d'un témoin
+un croissant c'est bien, en offrir c'est mieux
